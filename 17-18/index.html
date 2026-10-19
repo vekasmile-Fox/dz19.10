@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тег ввода</title>
+    <link rel="styesheet" href="style.css">
+</head>
+<body>
+    <h2>Тег ввода информации &lt;input&gt;</h2>
+    <!--ввод и кнопка-->
+    <input>
+    <button>OK</button>
+    <!--ввод пароля и кнопка-->
+    <input type="password">
+    <input type="button" value="OK">
+    <input type="checkbox"> <!--галочка-->
+    <div>
+        <label> Женский
+            <input type="radio" value="female" name="gender"> 
+            <!--выбрать только один вариант-->
+
+        </label>
+        <label>Мужской
+            <input type="radio" value="male" name="gender">
+
+        </label>
+       
+    </div>
+    
+    <input type="color">
+    <input type="date">
+    <input type="time">
+    <input type="file">
+    <input type="image" src="/icons.png" width="40" height="40">
+    <input type="range">
+    <input type="range" min="1" max="100" step="1">
+    <input type="range" min="1" max="101" step="50">
+    <input disabled>
+    <input type="email">
+    <input type="text" placeholder="Введите имя">
+    <input readonly placeholder="Ваш промокод 11777">
+
+    <div class="controls">
+        <!-- Шаг 1: Выбор картинки -->
+        <label for="imageInput">Выбрать картинку:</label>
+        <input type="file" id="imageInput" accept="image/*">
+
+        <!-- Шаг 2: Ползунок для изменения размера -->
+        <label for="sizeRange">Размер (шаг 5px): <span id="sizeValue">300</span>px</label>
+        <!-- min и max задают границы, step="5" задает шаг в 5 пикселей -->
+        <input type="range" id="sizeRange" min="50" max="800" step="5" value="300">
+    </div>
+
+    <div class="image-container">
+        <img id="preview" src="icons8-солнце-20.png" alt="солнышко">
+    </div>
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const sizeRange = document.getElementById('sizeRange');
+        const preview = document.getElementById('preview');
+        const sizeValue = document.getElementById('sizeValue');
+
+        // 1. Обработка загрузки картинки
+        imageInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    // Устанавливаем начальную ширину из текущего значения ползунка
+                    preview.style.width = sizeRange.value + 'px';
+                }
+                
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // 2. Обработка движения ползунка (range)
+        sizeRange.addEventListener('input', function() {
+            const currentSize = sizeRange.value;
+            
+            // Обновляем текст с текущим значением
+            sizeValue.textContent = currentSize;
+            
+            // Меняем ширину картинки (шаг 5px заложен в атрибуте step самого input)
+            preview.style.width = currentSize + 'px';
+        });
+    </script>
+
+    <script> /*код javascript подключаем в тегах script*/
+        
+
+    </script>
+</body>
+</html>

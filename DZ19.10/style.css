@@ -1,0 +1,46 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f9f9f9;
+    margin: 40px;
+}
+
+
+
+.dictionary-card{
+    background-color: #ffffff;
+    padding: 25px;
+    max-width: 750px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.word{
+    font-size: 22px;
+    font-weight: bold;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.transcripcion{
+    color: #aec396;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+dt{
+    font-style: italic;
+    color: #5c4ca5;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+}
+dd{margin-left: 0;
+}
+ol
+
+.blue{
+    color: blue;
+}
+.meta-info{
+    color: lightgray;
+}
